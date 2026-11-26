@@ -1,0 +1,44 @@
+# Where the sibling repos are, and where the user's facts are.
+# Paths are relative to this repo's folder, or absolute. scripts/doctor.py checks them.
+# Workflows refer to these keys in braces, e.g. {design_assistant}/docs/brand.md.
+# The writing rules and the user's voice files are not here: their keys are in writing-rules.yaml,
+# the contract, and scripts/doctor.py reads both files. A key is written in one of the two, never both.
+
+repos:
+  design_assistant: ../design-assistant          # renders every visual outside the site
+  company_brain: ../company-brain                 # an example: a repo a piece is about
+
+# Repos this install runs without. A module that needs one says so when it runs.
+optional:
+  design_assistant: yes
+  company_brain: yes
+
+# Where each repo above lives on git. scripts/repos.py clones a missing one into its path above.
+git:
+  design_assistant: https://github.com/anna-hovhan/design-assistant
+  company_brain: https://github.com/anna-hovhan/company-brain
+
+# The user's facts. Read them; the agent never invents one.
+private:
+  profile: workspace/profile/MY_PROFILE.md
+  goals: workspace/profile/GOALS.md
+  rules: workspace/profile/MY_RULES.md
+  cv_master: workspace/profile/cv-master.md
+  portfolio_stories: workspace/profile/portfolio-stories
+
+# Rules and references in the sibling repos.
+references:
+  brand: "{design_assistant}/docs/brand.md"
+  design_commands: "{design_assistant}/.claude/commands"
+
+# Files that restate the house rules. Each names the rule's ID (`HR-...`) from
+# system/00-core/house-rules.md next to the copy; scripts/doctor.py scans them at session start.
+rule_mirrors:
+  agents: AGENTS.md
+  social_voice_rules: "{social_voice_rules}"
+  social_voice: "{social_voice}"
+  tone_of_voice: "{tone_of_voice}"
+
+# Public links pieces may point to. Check each one is reachable before a piece links to it.
+links:
+  portfolio_site: https://example.com

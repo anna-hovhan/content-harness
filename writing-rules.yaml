@@ -1,0 +1,30 @@
+# The writing rules contract, schema 1. This repo is the provider: it owns every writing rule and the
+# user's voice. Each key below is a path relative to this folder, and workflows name a file by its key
+# in braces ({house_rules}, {social_voice}). A consumer repo finds the files through
+# this contract, never through the paths themselves. How it works, and how a change reaches each
+# consumer: docs/writing-rules-contract.md.
+#
+# rules:  generic text, safe to ship in a pack to people who cannot reach this repo. A rules file never
+#         names a person, an employer, a customer or a path outside this contract; it points to another
+#         contract file, or to a voice file, by its key in braces.
+# voice:  the user's own files. They never leave this repo.
+#
+# A key may be added in schema 1. Renaming or removing one is schema 2.
+schema: 1
+provider: content-harness
+rules:
+  house_rules: system/00-core/house-rules.md
+  banned_phrases: system/00-core/banned-phrases.txt
+  social_voice_rules: system/00-core/social-voice-rules.md
+  cv_rules: system/40-job-applications/cv-rules.md
+  cover_letter_rules: system/40-job-applications/cover-letter-rules.md
+  outreach_rules: system/40-job-applications/outreach-rules.md
+  voice_library: system/00-core/voice-library.md
+  social_voice_template: system/00-core/templates/social-voice-template.md
+voice:
+  tone_of_voice: workspace/tone-of-voice/TONE_OF_VOICE.md
+  voice_samples: workspace/tone-of-voice
+  social_voice: workspace/tone-of-voice/social/SOCIAL_VOICE.md
+  social_samples: workspace/tone-of-voice/social
+  social_inspiration: workspace/tone-of-voice/social-inspiration
+  writing_overrides: workspace/tone-of-voice/MY_WRITING_RULES.md

@@ -1,0 +1,70 @@
+# One phrase per line, matched case-insensitively as whole words by scripts/test_check_text.py.
+# Lines starting with # are comments. Source: the social voice rules ({social_voice_rules}), section 2, plus CV verbs from section 1.
+in today's fast-paced world
+in a world where
+here's the thing
+the reality is
+at the end of the day
+let's dive in
+game-changer
+game changer
+unlock
+delve
+elevate
+supercharge
+i'm thrilled to announce
+humbled
+a testament to
+synergy
+spearheaded
+leveraged
+orchestrated
+championed
+empowered
+the result?
+the kicker?
+the best part?
+# Inflated significance (house-rules.md, section 2). The checker catches these; the rule itself needs a read for tone.
+changed how i think
+changed the way i
+what i'd pass on
+for the first time
+the best test of
+matter enormously
+matters enormously
+will thank you
+genuinely curious
+# Explaining down to a tech-savvy reader (house-rules.md, section 3). Analogies that stand in for a known term need a read.
+# Left out on purpose: "in plain language" and "in plain english", which also describe natural-language prompting.
+in plain words
+in simple terms
+simply put
+put simply
+layman's terms
+explain like i'm five
+eli5
+no engineering needed
+no technical background
+# Selling register (house-rules.md, section 3). Promised outcomes and pitch closes need a read.
+# Left out on purpose: "seamless", one of the user's own words ({social_voice}).
+effortless
+effortlessly
+cutting-edge
+cutting edge
+best-in-class
+world-class
+revolutionary
+revolutionize
+revolutionise
+game-changing
+next-level
+unleash
+must-have
+say goodbye to
+look no further
+excited to share
+excited to announce
+proud to announce
+proud to share
+# Set by the user on 2026-11-24: avoid it in new text, although the user's social voice guide lists it among their own phrases.
+let's be honest
