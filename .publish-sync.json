@@ -1,5 +1,5 @@
 {
-  "source_commit": "811b71b",
+  "source_commit": "6b59990",
   "synced_at": "2026-11-26",
   "files": {
     ".claude/settings.json": "ad52bf7bf4e0f6b15f8998495afa06cdc6e6fd60e9477f89fcbcf2ebcecc45c6",
@@ -17,7 +17,7 @@
     "AGENTS.md": "2a8df54c768ad4beaa804481248fd46c1d978c73344c9bbf22d0ccc55ea93238",
     "CLAUDE.md": "00ef12923cd3d61e6438df039f4e7734578767fcc8e99017a641103b4bdf813a",
     "LICENSE": "226f1e81bb823c99075f2a5280ae9ba4f32ee131cf65e8a768238a163909ca06",
-    "README.md": "c4a0a2a6c1a033236f990d6af8410c5769dc4edcfe908051a0c5ac3c80bdd54b",
+    "README.md": "e043e3231948290602a9c68aad372eb90a91d56aa21daba26b2530169537c74b",
     "ROADMAP.md": "77570afcf13a72aba739601f738ca2c0af9569a112e399c85687efa665349c14",
     "config.yaml": "329dfc477f55c6e83b4e81d2e76cb406d9e60a78b5b5334c5493bc94a033b819",
     "docs/architecture.md": "20bee1b3e46b2654f9b3117baa2209925e1223d837b06c65d1428abc9a115c3c",

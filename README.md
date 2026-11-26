@@ -19,6 +19,14 @@ Every piece, from a short post to a long article, goes through the same six stag
                                                                    +--> back to 3 or 4 when a check fails
 ```
 
+### What the harness is made of
+
+- **Context:** the rules load in order of precedence, and a hook loads the voice guide.
+- **Workflows:** each command runs a fixed content loop.
+- **Guards that run whether or not the agent cooperates:** checks after every write, before a turn ends and before a commit, plus a file guard and a rules lock.
+- **A feedback loop:** corrections become tests or rules.
+- **A model-based judge,** with a calibration set built from your own decisions.
+
 ### What wraps the loop
 
 - **Evidence first.** A piece may only state what its evidence ledger traces to a source or to the user's own words. A gap becomes a visible `[CHECK: ...]` or `[YOUR MOMENT: ...]` marker, never a plausible guess.
