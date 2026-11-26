@@ -1,0 +1,570 @@
+{
+  "_about": "The rules lock. Every hard rule in system/00-core/house-rules.md (by its bold name, and by its HR- ID), every banned phrase, every checker error type, every piece-structure error type, every AI reviewer rubric criterion, every feedback case id, a locked example for every AI-pattern rule (ai_pattern_samples) and for the commit-message check (commit_message_samples). tests/test_rules_lock.py fails when a rule or phrase changes without this file changing in the same commit, when an error type stops being an error, or when a feedback case disappears. Change it only with the user's yes; the project hook asks before any edit.",
+  "house_rules": [
+    "Never invent",
+    "Unknown facts",
+    "Examples are labelled as examples.",
+    "Confidentiality:",
+    "Credit what the work builds on",
+    "Fact-check the user's points too.",
+    "Say whose work it was.",
+    "No em dashes or en dashes",
+    "No negative parallelism:",
+    "No stock AI phrasing:",
+    "No lesson-reveal framing:",
+    "No sentence starts with \"Here is\", \"Here's\" or \"Here are\"",
+    "No inflated significance.",
+    "No statements of the obvious.",
+    "No slogans.",
+    "No cinematic or dramatic openings.",
+    "No titles or headings that start with \"I\" or \"We\".",
+    "No reveal formula",
+    "No tricolon on autopilot.",
+    "No sweeping words.",
+    "Keep the specific fact.",
+    "No significance, legacy or trend claims.",
+    "Report what coverage said, not that it was covered.",
+    "State the fact, not the record.",
+    "No trailing \"-ing\" commentary.",
+    "Name the relationship.",
+    "Name your sources.",
+    "No challenges-and-future formula.",
+    "Plain headings.",
+    "No cluster of AI vocabulary.",
+    "Plain \"is\" and \"has\".",
+    "No contrast nobody asked for.",
+    "No definition of a topic as a proper noun.",
+    "Plain verbs.",
+    "No \"holds\" for \"works\" or \"applies\".",
+    "No list that repeats its opening word.",
+    "Vary the rhythm.",
+    "No brochure tone.",
+    "No summary wrap-ups.",
+    "No abrupt endings.",
+    "Prose by default.",
+    "One H1, levels in order.",
+    "No emoji markers.",
+    "Straight quotes.",
+    "No chatbot talk in the copy.",
+    "Gaps go to the user, not into the text.",
+    "No corrective framing or teacher-style hedges.",
+    "No template blanks.",
+    "Format for where it lands.",
+    "No interface artefacts or tracking parameters.",
+    "Change notes say what changed.",
+    "No customer-service register.",
+    "Jargon is welcome where it is the precise word.",
+    "No explaining down.",
+    "Gloss only what is niche",
+    "A metaphor earns its place",
+    "One term per concept",
+    "Concrete beats abstract:",
+    "Short paragraphs",
+    "Describe, and let the reader judge.",
+    "Show the how and the trade-offs:",
+    "Be fair to the alternatives.",
+    "Specific, checkable claims:",
+    "The close is a reference and a question.",
+    "No launch register:",
+    "The strength shows through the work:",
+    "CVs and cover letters",
+    "Posts and articles",
+    "The voice guide comes first.",
+    "CVs and cover letters",
+    "Portfolio pages",
+    "Say each idea once.",
+    "Keep the detail the argument needs.",
+    "Private repos stay private on the site."
+  ],
+  "rule_ids": {
+    "HR-never-invent": "Never invent",
+    "HR-mark-unknowns": "Unknown facts",
+    "HR-label-examples": "Examples are labelled as examples.",
+    "HR-confidentiality": "Confidentiality:",
+    "HR-credit": "Credit what the work builds on",
+    "HR-fact-check-user": "Fact-check the user's points too.",
+    "HR-say-whose-work": "Say whose work it was.",
+    "HR-no-dashes": "No em dashes or en dashes",
+    "HR-no-negative-parallelism": "No negative parallelism:",
+    "HR-no-stock-phrasing": "No stock AI phrasing:",
+    "HR-no-lesson-reveal": "No lesson-reveal framing:",
+    "HR-no-here-opener": "No sentence starts with \"Here is\", \"Here's\" or \"Here are\"",
+    "HR-no-inflation": "No inflated significance.",
+    "HR-no-obvious": "No statements of the obvious.",
+    "HR-no-slogans": "No slogans.",
+    "HR-no-cinematic-openings": "No cinematic or dramatic openings.",
+    "HR-no-i-we-titles": "No titles or headings that start with \"I\" or \"We\".",
+    "HR-no-reveal-formula": "No reveal formula",
+    "HR-no-autopilot-tricolon": "No tricolon on autopilot.",
+    "HR-no-sweeping-words": "No sweeping words.",
+    "HR-ai-keep-specific-fact": "Keep the specific fact.",
+    "HR-ai-no-significance-claims": "No significance, legacy or trend claims.",
+    "HR-ai-no-coverage-padding": "Report what coverage said, not that it was covered.",
+    "HR-ai-state-the-fact": "State the fact, not the record.",
+    "HR-ai-no-trailing-ing": "No trailing \"-ing\" commentary.",
+    "HR-ai-name-the-relationship": "Name the relationship.",
+    "HR-ai-name-sources": "Name your sources.",
+    "HR-ai-no-challenges-formula": "No challenges-and-future formula.",
+    "HR-ai-plain-headings": "Plain headings.",
+    "HR-ai-vocabulary-density": "No cluster of AI vocabulary.",
+    "HR-ai-plain-copulas": "Plain \"is\" and \"has\".",
+    "HR-ai-no-unasked-contrast": "No contrast nobody asked for.",
+    "HR-ai-no-topic-definition": "No definition of a topic as a proper noun.",
+    "HR-ai-plain-verbs": "Plain verbs.",
+    "HR-ai-no-holds": "No \"holds\" for \"works\" or \"applies\".",
+    "HR-ai-no-repeated-list-opener": "No list that repeats its opening word.",
+    "HR-ai-varied-rhythm": "Vary the rhythm.",
+    "HR-ai-no-brochure-tone": "No brochure tone.",
+    "HR-ai-no-wrap-up": "No summary wrap-ups.",
+    "HR-ai-no-abrupt-end": "No abrupt endings.",
+    "HR-ai-prose-default": "Prose by default.",
+    "HR-ai-heading-levels": "One H1, levels in order.",
+    "HR-ai-no-emoji-markers": "No emoji markers.",
+    "HR-ai-straight-quotes": "Straight quotes.",
+    "HR-ai-no-chat-residue": "No chatbot talk in the copy.",
+    "HR-ai-no-gap-hedging": "Gaps go to the user, not into the text.",
+    "HR-ai-no-corrective-framing": "No corrective framing or teacher-style hedges.",
+    "HR-ai-no-template-blanks": "No template blanks.",
+    "HR-ai-channel-markup": "Format for where it lands.",
+    "HR-ai-no-artefacts": "No interface artefacts or tracking parameters.",
+    "HR-ai-specific-change-notes": "Change notes say what changed.",
+    "HR-ai-no-service-register": "No customer-service register.",
+    "HR-precise-jargon": "Jargon is welcome where it is the precise word.",
+    "HR-no-explaining-down": "No explaining down.",
+    "HR-gloss-niche-only": "Gloss only what is niche",
+    "HR-metaphor-earns-place": "A metaphor earns its place",
+    "HR-one-term": "One term per concept",
+    "HR-concrete": "Concrete beats abstract:",
+    "HR-short-paragraphs": "Short paragraphs",
+    "HR-describe-not-sell": "Describe, and let the reader judge.",
+    "HR-show-trade-offs": "Show the how and the trade-offs:",
+    "HR-fair-alternatives": "Be fair to the alternatives.",
+    "HR-checkable-claims": "Specific, checkable claims:",
+    "HR-close-reference-question": "The close is a reference and a question.",
+    "HR-no-launch-register": "No launch register:",
+    "HR-strength-through-work": "The strength shows through the work:",
+    "HR-voice-posts": "Posts and articles",
+    "HR-voice-guide-first": "The voice guide comes first.",
+    "HR-no-repeated-idea": "Say each idea once.",
+    "HR-detail-budget": "Keep the detail the argument needs.",
+    "HR-site-private-repos": "Private repos stay private on the site."
+  },
+  "banned_phrases": [
+    "in today's fast-paced world",
+    "in a world where",
+    "here's the thing",
+    "the reality is",
+    "at the end of the day",
+    "let's dive in",
+    "game-changer",
+    "game changer",
+    "unlock",
+    "delve",
+    "elevate",
+    "supercharge",
+    "i'm thrilled to announce",
+    "humbled",
+    "a testament to",
+    "synergy",
+    "spearheaded",
+    "leveraged",
+    "orchestrated",
+    "championed",
+    "empowered",
+    "the result?",
+    "the kicker?",
+    "the best part?",
+    "changed how i think",
+    "changed the way i",
+    "what i'd pass on",
+    "for the first time",
+    "the best test of",
+    "matter enormously",
+    "matters enormously",
+    "will thank you",
+    "genuinely curious",
+    "in plain words",
+    "in simple terms",
+    "simply put",
+    "put simply",
+    "layman's terms",
+    "explain like i'm five",
+    "eli5",
+    "no engineering needed",
+    "no technical background",
+    "effortless",
+    "effortlessly",
+    "cutting-edge",
+    "cutting edge",
+    "best-in-class",
+    "world-class",
+    "revolutionary",
+    "revolutionize",
+    "revolutionise",
+    "game-changing",
+    "next-level",
+    "unleash",
+    "must-have",
+    "say goodbye to",
+    "look no further",
+    "excited to share",
+    "excited to announce",
+    "proud to announce",
+    "proud to share",
+    "let's be honest"
+  ],
+  "checker_errors": {
+    "em dash": {
+      "text": "One idea — and another.",
+      "contains": "em dash"
+    },
+    "en dash": {
+      "text": "A range 1–2.",
+      "contains": "en dash"
+    },
+    "banned phrase": {
+      "text": "Let's dive in.",
+      "contains": "banned phrase"
+    },
+    "contrast formula": {
+      "text": "It's not a tool, it's a habit.",
+      "contains": "contrast formula"
+    },
+    "number-pair slogan": {
+      "text": "1 folder, 3 commands.",
+      "contains": "slogan"
+    },
+    "here opener": {
+      "text": "Here's the plan.",
+      "contains": "sentence starts with"
+    },
+    "lesson-reveal framing": {
+      "text": "## What I learnt",
+      "contains": "lesson-reveal"
+    },
+    "I or We title": {
+      "text": "# I built a thing",
+      "contains": "starts with 'I' or 'We'"
+    },
+    "montage": {
+      "text": "The strategy deck. The reason we picked vendor B. The goal we agreed on in January.",
+      "contains": "montage"
+    },
+    "staccato run": {
+      "text": "You read it. You fix what it got wrong. You say yes.",
+      "contains": "staccato"
+    },
+    "word limit": {
+      "text": "One two three four five.",
+      "max_words": 3,
+      "contains": "over the limit"
+    },
+    "marker without a placement row": {
+      "text": "Text.\n\n[IMAGE v2: floors]\n",
+      "visuals": "| id | slug |\n|---|---|\n| v1 | cover |\n",
+      "contains": "has no row"
+    },
+    "sweeping word": {
+      "text": "Nobody has mapped how the process really runs.",
+      "contains": "sweeping word"
+    }
+  },
+  "structure_errors": [
+    "brief",
+    "evidence",
+    "trace",
+    "links",
+    "limits",
+    "status",
+    "open marker"
+  ],
+  "review_criteria": [
+    "flourish",
+    "explaining-down",
+    "selling",
+    "negative-parallelism",
+    "lesson-reveal",
+    "slogan",
+    "obvious",
+    "false-link",
+    "unchecked-claim",
+    "generic-claim",
+    "unasked-contrast",
+    "topic-definition",
+    "chat-residue",
+    "not-the-voice",
+    "repeated-idea",
+    "trivial-detail"
+  ],
+  "feedback_cases": [
+    "plain-words",
+    "no-engineering-needed",
+    "floors-analogy",
+    "chief-of-staff",
+    "try-it-break-it",
+    "promise-tagline",
+    "two-problems-one-so",
+    "i-title",
+    "montage-opening",
+    "staccato",
+    "brain-dump-literal",
+    "approved-title",
+    "approved-opening",
+    "approved-tagline",
+    "approved-limitations",
+    "second-beat-fragment",
+    "split-contrast",
+    "takeaways-heading",
+    "fragment-slogan",
+    "ai-significance",
+    "ai-chat-residue",
+    "ai-template-blank",
+    "ai-vocabulary-cluster",
+    "ai-generic-claim",
+    "ai-unasked-contrast",
+    "ai-topic-definition",
+    "ai-gap-hedge",
+    "ai-fair-alternative",
+    "ai-literal-underscore",
+    "repeated-thesis",
+    "trivial-mechanics",
+    "approved-judgment-calls",
+    "repeated-list-opener",
+    "lets-be-honest",
+    "rule-holds",
+    "sweeping-nobody",
+    "approved-without-sweeping-words",
+    "blog-limit-detail-paragraph"
+  ],
+  "ai_pattern_samples": [
+    {
+      "rule": "HR-ai-no-significance-claims",
+      "severity": "error",
+      "text": "It plays a pivotal role in the team."
+    },
+    {
+      "rule": "HR-ai-no-coverage-padding",
+      "severity": "error",
+      "text": "The project drew independent coverage from tech outlets."
+    },
+    {
+      "rule": "HR-ai-state-the-fact",
+      "severity": "warning",
+      "text": "Her website identifies her as a retired civil servant."
+    },
+    {
+      "rule": "HR-ai-no-trailing-ing",
+      "severity": "error",
+      "text": "The team shipped it, highlighting the need for review."
+    },
+    {
+      "rule": "HR-ai-no-trailing-ing",
+      "severity": "warning",
+      "text": "It syncs nightly, ensuring that nothing drifts."
+    },
+    {
+      "rule": "HR-ai-name-the-relationship",
+      "severity": "warning",
+      "text": "She was associated with science education."
+    },
+    {
+      "rule": "HR-ai-name-sources",
+      "severity": "error",
+      "text": "Experts argue that agents need permissions."
+    },
+    {
+      "rule": "HR-ai-no-challenges-formula",
+      "severity": "error",
+      "text": "Despite these challenges, the tool keeps growing."
+    },
+    {
+      "rule": "HR-ai-plain-headings",
+      "severity": "error",
+      "text": "## Conclusion"
+    },
+    {
+      "rule": "HR-ai-plain-headings",
+      "severity": "warning",
+      "text": "## How Company Brain Works Today"
+    },
+    {
+      "rule": "HR-ai-vocabulary-density",
+      "severity": "error",
+      "text": "We prioritize practical, steady work to foster trust."
+    },
+    {
+      "rule": "HR-ai-vocabulary-density",
+      "severity": "warning",
+      "text": "We prioritize practical notes."
+    },
+    {
+      "rule": "HR-ai-plain-copulas",
+      "severity": "error",
+      "text": "The note serves as a record."
+    },
+    {
+      "rule": "HR-ai-plain-copulas",
+      "severity": "warning",
+      "text": "The vault functions as a store."
+    },
+    {
+      "rule": "HR-ai-no-unasked-contrast",
+      "severity": "error",
+      "text": "Not only fast, but also private."
+    },
+    {
+      "rule": "HR-ai-no-unasked-contrast",
+      "severity": "warning",
+      "text": "Notes live in Drive rather than git."
+    },
+    {
+      "rule": "HR-ai-plain-verbs",
+      "severity": "error",
+      "text": "We utilize a vault."
+    },
+    {
+      "rule": "HR-ai-plain-verbs",
+      "severity": "warning",
+      "text": "She relocated the notes."
+    },
+    {
+      "rule": "HR-ai-no-holds",
+      "severity": "error",
+      "text": "Whether the rule holds depends on the harness."
+    },
+    {
+      "rule": "HR-ai-no-holds",
+      "severity": "warning",
+      "text": "The rules live in one file."
+    },
+    {
+      "rule": "HR-ai-no-repeated-list-opener",
+      "severity": "error",
+      "text": "Bring your team, your tools and your data."
+    },
+    {
+      "rule": "HR-ai-varied-rhythm",
+      "severity": "warning",
+      "text": "The team keeps every note in a single folder under version control. Each skill reads one file and writes a short summary for review. A weekly job collects the summaries and files them by project name. People approve a promotion by replying to the message in the channel. The agent then copies the note into the shared layer of the vault. Every change is logged with the author and the date it was made. Reviewers can read the log to see who approved which promotion. The hooks check each note against the rules before it is saved. Failed checks stop the write and print the reason on the screen. The test suite runs the same checks on every pull request that opens. Results appear in the pull request and block the merge when they fail. The maintainers read the results each morning and fix the broken notes."
+    },
+    {
+      "rule": "HR-ai-no-brochure-tone",
+      "severity": "error",
+      "text": "The valley is nestled in the heart of the city."
+    },
+    {
+      "rule": "HR-ai-no-brochure-tone",
+      "severity": "warning",
+      "text": "The talk showcases the vault."
+    },
+    {
+      "rule": "HR-ai-no-wrap-up",
+      "severity": "error",
+      "text": "In conclusion, it works."
+    },
+    {
+      "rule": "HR-ai-no-wrap-up",
+      "severity": "warning",
+      "text": "Overall, it works."
+    },
+    {
+      "rule": "HR-ai-no-abrupt-end",
+      "severity": "warning",
+      "text": "The vault keeps its notes in"
+    },
+    {
+      "rule": "HR-ai-prose-default",
+      "severity": "warning",
+      "text": "- **Layers**: three\n- **Notes**: markdown\n- **Hooks**: guards"
+    },
+    {
+      "rule": "HR-ai-heading-levels",
+      "severity": "warning",
+      "text": "# One\n\n# Two\n\nText here."
+    },
+    {
+      "rule": "HR-ai-no-emoji-markers",
+      "severity": "warning",
+      "text": "- 🚀 Ship the vault."
+    },
+    {
+      "rule": "HR-ai-straight-quotes",
+      "severity": "warning",
+      "text": "The “vault” is private."
+    },
+    {
+      "rule": "HR-ai-no-chat-residue",
+      "severity": "error",
+      "text": "I hope this helps!"
+    },
+    {
+      "rule": "HR-ai-no-gap-hedging",
+      "severity": "error",
+      "text": "Based on available information, the repo is public."
+    },
+    {
+      "rule": "HR-ai-no-corrective-framing",
+      "severity": "error",
+      "text": "It is important to note that the vault is private."
+    },
+    {
+      "rule": "HR-ai-no-corrective-framing",
+      "severity": "warning",
+      "text": "This should not be confused with a wiki."
+    },
+    {
+      "rule": "HR-ai-no-template-blanks",
+      "severity": "error",
+      "text": "[Company Name] hired me."
+    },
+    {
+      "rule": "HR-ai-channel-markup",
+      "severity": "error",
+      "text": "I use **bold** here.",
+      "channel": "LinkedIn post"
+    },
+    {
+      "rule": "HR-ai-no-artefacts",
+      "severity": "error",
+      "text": "See https://example.org/a?utm_source=chatgpt.com for more."
+    },
+    {
+      "rule": "HR-ai-no-service-register",
+      "severity": "error",
+      "text": "I apologize for any inconvenience."
+    },
+    {
+      "rule": "HR-short-paragraphs",
+      "severity": "warning",
+      "text": "Two **bold** and **bold** phrases here."
+    },
+    {
+      "rule": "HR-no-sweeping-words",
+      "severity": "error",
+      "text": "Nobody has mapped how the process really runs."
+    },
+    {
+      "rule": "HR-no-sweeping-words",
+      "severity": "warning",
+      "text": "Everyone uses the same template."
+    }
+  ],
+  "commit_message_samples": [
+    {
+      "rule": "HR-ai-specific-change-notes",
+      "text": "Refined the draft for clarity and flow."
+    },
+    {
+      "rule": "HR-ai-specific-change-notes",
+      "text": "Ensured the piece adheres to the house rules."
+    },
+    {
+      "rule": "HR-ai-specific-change-notes",
+      "text": "Addressed reviewer feedback."
+    },
+    {
+      "rule": "HR-ai-no-service-register",
+      "text": "I apologize for any inconvenience."
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+# Scratch exports and previews
+workspace/**/_scratch/

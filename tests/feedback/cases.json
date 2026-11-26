@@ -1,0 +1,338 @@
+{
+  "_about": "Every correction the user makes becomes a case here, and approved text becomes a pass case. Cases with piece 'house-rules' are taken from the house rules' own examples, not from a correction: they calibrate the reviewer but do not count toward its minimum of the user's own cases. expect: error (test_check_text.py must flag it, with 'contains' in the message), pass (no errors), review (only a reader or the AI reviewer can judge it; 'criterion' names the rubric criterion in system/00-core/test_review-rubric.md that scripts/test_calibrate_reviewer.py expects the reviewer to flag). Each id is also listed in tests/rules.lock, so a case cannot quietly disappear. The human-readable record is workspace/feedback-log.md.",
+  "cases": [
+    {
+      "id": "plain-words",
+      "date": "2026-11-10",
+      "piece": "2026-11-07-company-brain-linkedin-article",
+      "feedback": "Written for a non-technical reader: a plain-words formulation for a tech-savvy audience.",
+      "expect": "error",
+      "contains": "banned phrase 'in plain words'",
+      "text": "## What it is, in plain words"
+    },
+    {
+      "id": "no-engineering-needed",
+      "date": "2026-11-10",
+      "piece": "2026-11-07-company-brain-linkedin-article",
+      "feedback": "Reassures a technical reader that no technical skill is needed.",
+      "expect": "error",
+      "contains": "banned phrase 'no engineering needed'",
+      "text": "If you've written an onboarding guide or run a planning cycle, you've done this kind of work before. No engineering needed."
+    },
+    {
+      "id": "floors-analogy",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "An analogy standing in for a term the reader knows (layers).",
+      "expect": "review",
+      "criterion": "explaining-down",
+      "text": "Access follows three layers. Picture the company's knowledge as a building with three floors."
+    },
+    {
+      "id": "chief-of-staff",
+      "date": "2026-11-10",
+      "piece": "2026-11-07-company-brain-linkedin-article",
+      "feedback": "An analogy standing in for a term the reader knows (an agent).",
+      "expect": "review",
+      "criterion": "explaining-down",
+      "text": "Think of Claude as a very diligent chief of staff: it files things in the right place, links them to what they relate to, and keeps the whole thing tidy."
+    },
+    {
+      "id": "try-it-break-it",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "A call to try and adopt the tool, where the register should be knowledge sharing.",
+      "expect": "review",
+      "criterion": "selling",
+      "text": "## Try it, break it, tell me what's missing\n\nIt ships as an empty template, ready to set up for your company. No real team has run it yet, so the first teams to try it will shape what comes next."
+    },
+    {
+      "id": "promise-tagline",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "The cover tagline promised an outcome instead of naming the mechanism.",
+      "expect": "review",
+      "criterion": "selling",
+      "text": "Everyone's daily work links up to the company's strategy, and you decide what gets shared."
+    },
+    {
+      "id": "two-problems-one-so",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "Two paragraphs name two different problems (shared context, strategic alignment), and a 'so' joins them as if one caused the other.",
+      "expect": "review",
+      "criterion": "false-link",
+      "text": "It's all somewhere: in a Slack thread, a slide, a meeting nobody wrote up, or the head of someone who left last spring.\n\nSo every day, people answer the same \"so what?\" question from scratch: how does the work I did today connect to the company's strategy?"
+    },
+    {
+      "id": "i-title",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "The headline starts with 'I' and reads as an announcement.",
+      "expect": "error",
+      "contains": "starts with 'I' or 'We'",
+      "text": "# I built a shared context layer that connects everyone's work to the company's strategy"
+    },
+    {
+      "id": "montage-opening",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "The opening paragraph is a montage of fragments and reads as dramatic.",
+      "expect": "error",
+      "contains": "montage",
+      "text": "The strategy deck. The reason we picked vendor B over vendor A. The goal we agreed on in January and quietly stopped talking about in March. It's all somewhere: in a Slack thread, a slide, a meeting nobody wrote up, or the head of someone who left last spring."
+    },
+    {
+      "id": "staccato",
+      "date": "2026-11-10",
+      "piece": "2026-11-07-company-brain-linkedin-article",
+      "feedback": "A run of short staccato sentences, a pattern the user's voice guide rules out.",
+      "expect": "error",
+      "contains": "staccato",
+      "text": "You read it. You fix what it got wrong. You say yes. Only then is it published."
+    },
+    {
+      "id": "brain-dump-literal",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "The user's points were written up as given, without a fact-check or the writer's own analysis.",
+      "expect": "review",
+      "criterion": "unchecked-claim",
+      "text": "That is, in my view, why so many tech companies are focused on infrastructure right now, and why permissions have become the central piece. Agents now work like people: an agent acting for someone can give any go-ahead that person can give, and corporate IT can give it for both."
+    },
+    {
+      "id": "approved-title",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "Approved.",
+      "expect": "pass",
+      "text": "# Shared context for agents is an operating model problem"
+    },
+    {
+      "id": "approved-opening",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "Approved. On 2026-11-22 the user asked for no sweeping words such as \"nobody\" (feedback log, the AI system design portfolio page), which became house rule HR-no-sweeping-words on 2026-11-24, so this case keeps every sentence of the approved text but the one that said \"meetings nobody wrote up\" and \"nobody can say which version is current\".",
+      "expect": "pass",
+      "text": "Two problems limit what agents can do inside a company.\n\nThe second problem is alignment, and it remains even where the strategy is written down: nothing links it to the work. So every week, people answer the same \"so what?\" question from scratch: how does what I did this week connect to the company's strategy?"
+    },
+    {
+      "id": "approved-tagline",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "Approved.",
+      "expect": "pass",
+      "text": "Your week links to team and company goals, and you choose what reaches your team."
+    },
+    {
+      "id": "approved-limitations",
+      "date": "2026-11-10",
+      "piece": "2026-11-09-company-brain-article-short",
+      "feedback": "Approved: prose, at most 150 words.",
+      "expect": "pass",
+      "text": "Company Brain is a prototype that no real team has run yet; its multi-user design has been exercised only by its test suite. Its privacy rests on shared-folder permissions and a person's yes, and the yes is enforced by convention: Claude works with the person's own access, so it can technically approve anything they can. Human approval is a sound control, but only as one layer, since frequent prompts get approved by reflex.\n\nIn an enterprise, data owners decide who may see what, and IT and security enforce it in the identity provider and in the systems that hold the data. A real deployment would add single sign-on and provisioning, agents with their own scoped and short-lived credentials, authorization checked where the data lives, permissions that follow content into summaries and search, sensitivity labels and private areas, an audit trail of who approved what, and retention and residency rules."
+    },
+    {
+      "id": "second-beat-fragment",
+      "date": "2026-11-10",
+      "piece": "voice",
+      "feedback": "The user's own pattern: a full sentence, then one short fragment as a second beat. It must keep passing.",
+      "expect": "pass",
+      "text": "Google AI Studio's launch is cool. But I will stick to my stack. At least for now."
+    },
+    {
+      "id": "split-contrast",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "Negative parallelism split across two sentences with \"isn't\", a form test_check_text.py does not match. Taken from the house rules' own examples at the user's request, not from a correction on a piece.",
+      "expect": "review",
+      "criterion": "negative-parallelism",
+      "text": "This isn't a tool. It's a habit."
+    },
+    {
+      "id": "takeaways-heading",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "Lesson-reveal framing in a form test_check_text.py does not match. Taken from the house rules' own examples at the user's request, not from a correction on a piece.",
+      "expect": "review",
+      "criterion": "lesson-reveal",
+      "text": "## Five things I took away from building it"
+    },
+    {
+      "id": "fragment-slogan",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A pair of short fragments that reads like a tagline; test_check_text.py only warns. Taken from the house rules' own examples at the user's request, not from a correction on a piece.",
+      "expect": "review",
+      "criterion": "slogan",
+      "text": "Private by default. Shared on purpose."
+    },
+    {
+      "id": "ai-significance",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A significance claim. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "error",
+      "contains": "HR-ai-no-significance-claims",
+      "text": "The vault plays a pivotal role in how the team shares context."
+    },
+    {
+      "id": "ai-chat-residue",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "Chatbot talk left in the copy. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "error",
+      "contains": "HR-ai-no-chat-residue",
+      "text": "I hope this helps! Let me know if you want a more detailed breakdown."
+    },
+    {
+      "id": "ai-template-blank",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A template blank left in the copy. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "error",
+      "contains": "HR-ai-no-template-blanks",
+      "text": "Dear [Company Name], I would like to apply."
+    },
+    {
+      "id": "ai-vocabulary-cluster",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A cluster of AI vocabulary. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "error",
+      "contains": "HR-ai-vocabulary-density",
+      "text": "We prioritize practical, steady work to foster trust."
+    },
+    {
+      "id": "ai-generic-claim",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A detail made to stand for a bigger movement. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "review",
+      "criterion": "generic-claim",
+      "text": "The repo reflects a growing movement towards shared context across the industry."
+    },
+    {
+      "id": "ai-unasked-contrast",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A contrast spread over two sentences that nobody asked for. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "review",
+      "criterion": "unasked-contrast",
+      "text": "The tool was known for speed. Its real value, however, lay in keeping notes consistent."
+    },
+    {
+      "id": "ai-topic-definition",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A generic topic defined as if it were a proper noun. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "review",
+      "criterion": "topic-definition",
+      "text": "The skills list is a collection of the commands the assistant can run."
+    },
+    {
+      "id": "ai-gap-hedge",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A hedge about missing information left in the text. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "review",
+      "criterion": "chat-residue",
+      "text": "The exact numbers are hard to pin down, so the figure is likely a few dozen."
+    },
+    {
+      "id": "ai-fair-alternative",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "A real alternative, weighed (rather than is fine here). Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "pass",
+      "text": "Notes live in Drive rather than git, because the people who edit them do not use git."
+    },
+    {
+      "id": "ai-literal-underscore",
+      "date": "2026-11-11",
+      "piece": "house-rules",
+      "feedback": "Underscore as the literal character. Taken from the AI writing pattern rules (house rules, section 2.2) at the user's request, not from a correction on a piece.",
+      "expect": "pass",
+      "text": "Replace the underscore with a hyphen and the key resolves."
+    },
+    {
+      "id": "repeated-thesis",
+      "date": "2026-11-13",
+      "piece": "2026-11-12-company-brain-article-refined",
+      "feedback": "The same point returned in the hook, the reframe, a section and the close.",
+      "expect": "review",
+      "criterion": "repeated-idea",
+      "text": "Shared context and alignment are operating model problems first.\n\nFor a leader, both are operating model questions: which knowledge every team shares, who owns it and how it stays current. AI works at company level only once those answers are written down.\n\nIn the end, shared context and alignment are operating model problems: decide what is shared, who owns it and how it stays current, then let the code enforce it."
+    },
+    {
+      "id": "trivial-mechanics",
+      "date": "2026-11-13",
+      "piece": "2026-11-12-company-brain-article-refined",
+      "feedback": "Ordinary behaviour spelled out: what a dry run does, which connectors feed a note.",
+      "expect": "review",
+      "criterion": "trivial-detail",
+      "text": "Promotion runs as a dry run first. The dry run builds a copy, shows you the diff and writes only when you say yes. The weekly skill reads your calendar, Slack, email and Jira, and writes a note from them."
+    },
+    {
+      "id": "approved-judgment-calls",
+      "date": "2026-11-24",
+      "piece": "2026-11-22-ai-system-design-blog-post",
+      "feedback": "A supporting line for the LinkedIn post about the blog post. Two earlier versions scored 100 but read as AI to the user ('An automation holds up in production only as well as the process it automates, and the written process covers part of how the work really runs. The rest is judgment that people apply every day and that a set of rules can't fully describe.'). The user picked this one as sounding like her. Later on 2026-11-24 the user asked to avoid 'Let's be honest' in new text, so this case keeps the first sentence of the picked line only; the second sentence opened with that phrase.",
+      "expect": "pass",
+      "text": "Your automation will only ever be as good as the process behind it, and most processes only work up to a point."
+    },
+    {
+      "id": "repeated-list-opener",
+      "date": "2026-11-24",
+      "piece": "2026-11-24-agent-harness-guardrails-blog-post",
+      "feedback": "A list where every item opens with 'my' sounds too AI. The user asked for a house rule.",
+      "expect": "error",
+      "contains": "HR-ai-no-repeated-list-opener",
+      "text": "I run four of my personal repos with agents: my writing, my job search, my images, and my portfolio site."
+    },
+    {
+      "id": "lets-be-honest",
+      "date": "2026-11-24",
+      "piece": "2026-11-24-agent-harness-guardrails-blog-post",
+      "feedback": "The user asked to avoid 'Let's be honest'. The draft had taken it from her voice guide as a voice marker.",
+      "expect": "error",
+      "contains": "banned phrase 'let's be honest'",
+      "text": "Let's be honest, that goes wrong in two ways."
+    },
+    {
+      "id": "rule-holds",
+      "date": "2026-11-24",
+      "piece": "2026-11-24-agent-harness-guardrails-blog-post",
+      "feedback": "The user asked to avoid words like 'it holds', in the title and the reframe. She asked for a house rule.",
+      "expect": "error",
+      "contains": "HR-ai-no-holds",
+      "text": "# A rule holds when the agent can't edit its check\n\nA rules file is a request. Whether it holds depends on the harness."
+    },
+    {
+      "id": "sweeping-nobody",
+      "date": "2026-11-22",
+      "piece": "2026-11-22-ai-system-design-portfolio-page",
+      "feedback": "\"Nobody has mapped...\" and \"nobody wrote down\" read as sweeping; the user asked for softer wording and no words such as \"nobody\". House rule HR-no-sweeping-words (2026-11-24). The text is built from her two phrases.",
+      "expect": "error",
+      "contains": "HR-no-sweeping-words",
+      "text": "Nobody has mapped how it really runs, and the checks people run are ones nobody wrote down."
+    },
+    {
+      "id": "approved-without-sweeping-words",
+      "date": "2026-11-22",
+      "piece": "2026-11-22-ai-system-design-portfolio-page",
+      "feedback": "The rewrites of the sweeping wording, as the user approved them: \"has to be mapped first\" (the page's At a glance line in draft.md) and \"without a written rule\" (the context field of page.md, approved 2026-11-22). Both sentences word for word.",
+      "expect": "pass",
+      "text": "The human system an agent will join has to be mapped first: its decisions, controls, trust needs and unwritten judgment.\n\nBefore an agent takes over part of a business process, someone has to find out how that process really runs: who decides what and on what basis, which checks people run without a written rule, what they need to see before they act on an agent's output, and which limits the business won't relax for any gain."
+    },
+    {
+      "id": "blog-limit-detail-paragraph",
+      "date": "2026-11-25",
+      "piece": "2026-11-24-agent-harness-guardrails-blog-post",
+      "feedback": "Copy pieces like this paragraph are boring and make the reader lose interest; cut small details, keep the architectural and strategic decisions, cut down or leave out the limitations.",
+      "expect": "review",
+      "criterion": "trivial-detail",
+      "text": "A passing score has its own limit too. That day two versions of the same output scored 100 on the linter, and I still rejected both. The session had run the linter and skipped the reference file it was meant to follow. The fix is a SessionStart hook that loads that file into every session, and the file now keeps an approved and a rejected example side by side, with the note that a linter score of 100 does not mean the output is right."
+    }
+  ]
+}
