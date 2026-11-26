@@ -1,0 +1,31 @@
+# The AI reviewer, on demand: runs only on a pull request with the "ai-review" label, because every run
+# costs money. It reviews the pieces in review, final or posted whose files the pull request changes,
+# against system/00-core/test_review-rubric.md, and writes its findings, each with its quote, to the job summary.
+# Needs the repository secret ANTHROPIC_API_KEY. Advisory: it is not a required check, and it says on
+# every run whether it is calibrated for its pinned model (scripts/test_calibrate_reviewer.py).
+name: ai-review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  ai-review:
+    if: contains(github.event.pull_request.labels.*.name, 'ai-review')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the pinned SDK
+        run: pip install anthropic==2.8.0
+      - name: Review the changed pieces
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 scripts/ai_review.py --pieces --since "origin/${{ github.base_ref }}" --summary "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,230 @@
+{
+  "model": "claude-opus-5-5",
+  "effort": "high",
+  "backend": "claude-cli",
+  "set": "synthetic",
+  "fingerprint": "238a86aa6db5345f",
+  "date": "2026-11-25",
+  "status": "smoke test passed",
+  "reason": "synthetic text: shows whether the reviewer knows each criterion, never a calibration on the user",
+  "caught": "15/15",
+  "false_alarms": "0/15",
+  "results": [
+    {
+      "id": "syn-flourish-rejected",
+      "expect": "flourish",
+      "got": [
+        "flourish"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-explaining-down-rejected",
+      "expect": "explaining-down",
+      "got": [
+        "explaining-down"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-selling-rejected",
+      "expect": "selling",
+      "got": [
+        "selling"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-negative-parallelism-rejected",
+      "expect": "negative-parallelism",
+      "got": [
+        "negative-parallelism"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-lesson-reveal-rejected",
+      "expect": "lesson-reveal",
+      "got": [
+        "lesson-reveal"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-slogan-rejected",
+      "expect": "slogan",
+      "got": [
+        "selling",
+        "slogan"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-obvious-rejected",
+      "expect": "obvious",
+      "got": [
+        "obvious"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-false-link-rejected",
+      "expect": "false-link",
+      "got": [
+        "false-link"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-unchecked-claim-rejected",
+      "expect": "unchecked-claim",
+      "got": [
+        "false-link",
+        "unchecked-claim"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-generic-claim-rejected",
+      "expect": "generic-claim",
+      "got": [
+        "generic-claim"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-unasked-contrast-rejected",
+      "expect": "unasked-contrast",
+      "got": [
+        "unasked-contrast"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-topic-definition-rejected",
+      "expect": "topic-definition",
+      "got": [
+        "topic-definition"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-repeated-idea-rejected",
+      "expect": "repeated-idea",
+      "got": [
+        "repeated-idea"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-trivial-detail-rejected",
+      "expect": "trivial-detail",
+      "got": [
+        "trivial-detail"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-chat-residue-rejected",
+      "expect": "chat-residue",
+      "got": [
+        "chat-residue"
+      ],
+      "outcome": "caught"
+    },
+    {
+      "id": "syn-flourish-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-explaining-down-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-selling-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-negative-parallelism-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-lesson-reveal-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-slogan-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-obvious-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-false-link-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-unchecked-claim-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-generic-claim-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-unasked-contrast-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-topic-definition-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-repeated-idea-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-trivial-detail-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    },
+    {
+      "id": "syn-chat-residue-approved",
+      "expect": "nothing",
+      "got": [],
+      "outcome": "passed"
+    }
+  ],
+  "usage": {
+    "input_tokens": 177351,
+    "output_tokens": 7015
+  }
+}

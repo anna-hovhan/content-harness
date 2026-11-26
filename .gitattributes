@@ -1,0 +1,6 @@
+# The two logs are tables that every session adds a row to, at the top. Two branches that each add a row
+# change the same lines, so an ordinary merge stops on a conflict although both rows should stay.
+# A union merge keeps the rows of both sides. Read the merged table once after a merge: it never drops a
+# row, but it cannot tell which of two edits to the same row is the right one.
+workspace/content-log.md merge=union
+workspace/feedback-log.md merge=union

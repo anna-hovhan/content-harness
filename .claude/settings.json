@@ -1,0 +1,87 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/preflight.py\"",
+            "timeout": 60,
+            "statusMessage": "Checking that the harness works"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/load_voice.py\"",
+            "timeout": 10,
+            "statusMessage": "Loading the voice guide"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/protect_rules.py\"",
+            "timeout": 10,
+            "statusMessage": "Checking for changes to the rule files"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/test_check_content.py\" commit",
+            "timeout": 30,
+            "statusMessage": "Checking what is committed against the house rules"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/test_check_content.py\" prompt",
+            "timeout": 10,
+            "statusMessage": "Loading the writing checks"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/test_check_content.py\" post-write",
+            "timeout": 30,
+            "statusMessage": "Checking the text against the house rules"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/scripts/hooks/test_check_content.py\" stop",
+            "timeout": 30,
+            "statusMessage": "Checking written files against the house rules"
+          }
+        ]
+      }
+    ]
+  }
+}

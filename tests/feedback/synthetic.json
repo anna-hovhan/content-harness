@@ -1,0 +1,200 @@
+{
+  "_about": "Synthetic labelled pairs for a smoke test of the AI reviewer: one per rubric criterion except not-the-voice (judged only against the user's posts). Each pair is a made-up text with the fault (expect review, with the criterion the reviewer must flag) and a rewrite without it (expect pass). Written by Claude on 2026-11-25 about a fictional support-ticket triage agent; none of it is the user's writing or the user's judgment, so these cases never count toward calibration (python3 scripts/test_calibrate_reviewer.py --set synthetic writes tests/feedback/calibration-synthetic.json, never calibration.json).",
+  "cases": [
+    {
+      "id": "syn-flourish-rejected",
+      "pair": "syn-flourish",
+      "expect": "review",
+      "criterion": "flourish",
+      "text": "Our support queue had a problem that the team quietly stopped talking about in March: tickets waited two days for a first answer. The triage agent we built turned out to be the most important set of rules in the whole company."
+    },
+    {
+      "id": "syn-flourish-approved",
+      "pair": "syn-flourish",
+      "expect": "pass",
+      "text": "Tickets in our support queue waited two days for a first answer. The triage agent we built sorts each new ticket by product and urgency and assigns it to a queue."
+    },
+    {
+      "id": "syn-explaining-down-rejected",
+      "pair": "syn-explaining-down",
+      "expect": "review",
+      "criterion": "explaining-down",
+      "text": "The triage agent is like a very diligent receptionist who never sleeps. It uses an LLM, which is a computer program that predicts the next word, and you don't need any technical skills to set it up."
+    },
+    {
+      "id": "syn-explaining-down-approved",
+      "pair": "syn-explaining-down",
+      "expect": "pass",
+      "text": "The triage agent reads each new ticket with one LLM call, tags it with a product and an urgency, and routes it through the helpdesk API."
+    },
+    {
+      "id": "syn-selling-rejected",
+      "pair": "syn-selling",
+      "expect": "review",
+      "criterion": "selling",
+      "text": "With the triage agent, your team will never chase a ticket again. It's the smartest way to run support. Try it today and see the difference for yourself."
+    },
+    {
+      "id": "syn-selling-approved",
+      "pair": "syn-selling",
+      "expect": "pass",
+      "text": "The triage agent routes each new ticket to a queue within a minute of its arrival. The routing rules are in the repo, and I'd like to hear how other teams split urgency from product."
+    },
+    {
+      "id": "syn-negative-parallelism-rejected",
+      "pair": "syn-negative-parallelism",
+      "expect": "review",
+      "criterion": "negative-parallelism",
+      "text": "The triage agent isn't a chatbot. It's a router for the queue."
+    },
+    {
+      "id": "syn-negative-parallelism-approved",
+      "pair": "syn-negative-parallelism",
+      "expect": "pass",
+      "text": "The triage agent is a router for the queue: it reads each ticket and sends it to the team that owns the product."
+    },
+    {
+      "id": "syn-lesson-reveal-rejected",
+      "pair": "syn-lesson-reveal",
+      "expect": "review",
+      "criterion": "lesson-reveal",
+      "text": "## Five things I took away from building the triage agent\n\nThe first one surprised me: urgency and product needed separate rules."
+    },
+    {
+      "id": "syn-lesson-reveal-approved",
+      "pair": "syn-lesson-reveal",
+      "expect": "pass",
+      "text": "## Urgency and product need separate rules\n\nThe agent tags urgency from the customer's wording and product from the form field, and the two rules change at different speeds."
+    },
+    {
+      "id": "syn-slogan-rejected",
+      "pair": "syn-slogan",
+      "expect": "review",
+      "criterion": "slogan",
+      "text": "Every ticket gets a queue within a minute. Fast to route. Safe to trust."
+    },
+    {
+      "id": "syn-slogan-approved",
+      "pair": "syn-slogan",
+      "expect": "pass",
+      "text": "Every ticket gets a queue within a minute, and the agent never closes a ticket on its own."
+    },
+    {
+      "id": "syn-obvious-rejected",
+      "pair": "syn-obvious",
+      "expect": "review",
+      "criterion": "obvious",
+      "text": "The triage agent uses an LLM to read each ticket. AI can make mistakes, so it is worth checking what it does."
+    },
+    {
+      "id": "syn-obvious-approved",
+      "pair": "syn-obvious",
+      "expect": "pass",
+      "text": "The triage agent uses an LLM to read each ticket, and a person checks every ticket it marks as urgent before the customer hears back."
+    },
+    {
+      "id": "syn-false-link-rejected",
+      "pair": "syn-false-link",
+      "expect": "review",
+      "criterion": "false-link",
+      "text": "We moved the helpdesk to a new vendor in May, so the triage agent's accuracy went up."
+    },
+    {
+      "id": "syn-false-link-approved",
+      "pair": "syn-false-link",
+      "expect": "pass",
+      "text": "We moved the helpdesk to a new vendor in May. In the same month we rewrote the urgency rules, and the share of tickets the teams sent back to the agent fell from one in five to one in ten."
+    },
+    {
+      "id": "syn-unchecked-claim-rejected",
+      "pair": "syn-unchecked-claim",
+      "expect": "review",
+      "criterion": "unchecked-claim",
+      "text": "Most support teams already route tickets with AI, which is why the helpdesk vendors are all building agents."
+    },
+    {
+      "id": "syn-unchecked-claim-approved",
+      "pair": "syn-unchecked-claim",
+      "expect": "pass",
+      "text": "Our helpdesk vendor added an agent API in its spring release, and the triage agent calls it to assign each ticket."
+    },
+    {
+      "id": "syn-generic-claim-rejected",
+      "pair": "syn-generic-claim",
+      "expect": "review",
+      "criterion": "generic-claim",
+      "text": "The triage agent became a cornerstone of how the team works, and it reflects a growing movement towards automation across the industry."
+    },
+    {
+      "id": "syn-generic-claim-approved",
+      "pair": "syn-generic-claim",
+      "expect": "pass",
+      "text": "The triage agent now routes every ticket that arrives through the web form; tickets sent by email are still sorted by hand."
+    },
+    {
+      "id": "syn-unasked-contrast-rejected",
+      "pair": "syn-unasked-contrast",
+      "expect": "review",
+      "criterion": "unasked-contrast",
+      "text": "The triage agent was known for its speed. Its real value, however, lay in keeping the urgency labels consistent across teams."
+    },
+    {
+      "id": "syn-unasked-contrast-approved",
+      "pair": "syn-unasked-contrast",
+      "expect": "pass",
+      "text": "The triage agent gives every team the same urgency labels, because one set of rules applies them to every ticket."
+    },
+    {
+      "id": "syn-topic-definition-rejected",
+      "pair": "syn-topic-definition",
+      "expect": "review",
+      "criterion": "topic-definition",
+      "text": "## Routing rules\n\nThe routing rules section is an overview of how tickets reach their queue. Each rule names a product and the team that owns it."
+    },
+    {
+      "id": "syn-topic-definition-approved",
+      "pair": "syn-topic-definition",
+      "expect": "pass",
+      "text": "## Routing rules\n\nEach rule names a product and the team that owns it, and the agent applies the first rule whose product matches the ticket."
+    },
+    {
+      "id": "syn-repeated-idea-rejected",
+      "pair": "syn-repeated-idea",
+      "expect": "review",
+      "criterion": "repeated-idea",
+      "text": "The agent tags urgency and product with separate rules, because the two change at different speeds.\n\nThe product rules change when a product launches, a few times a year.\n\nKeeping urgency and product apart is necessary since each one is updated on its own schedule, so one combined set of rules would always be half out of date."
+    },
+    {
+      "id": "syn-repeated-idea-approved",
+      "pair": "syn-repeated-idea",
+      "expect": "pass",
+      "text": "The agent tags urgency and product with separate rules, because the two change at different speeds.\n\nThe product rules change when a product launches, a few times a year; the urgency rules change after every incident review."
+    },
+    {
+      "id": "syn-trivial-detail-rejected",
+      "pair": "syn-trivial-detail",
+      "expect": "review",
+      "criterion": "trivial-detail",
+      "text": "To run the agent, open a terminal, change into the repo folder and type the start command. The agent then prints a line for each ticket it reads. To stop it, press Control and C."
+    },
+    {
+      "id": "syn-trivial-detail-approved",
+      "pair": "syn-trivial-detail",
+      "expect": "pass",
+      "text": "The agent runs as a scheduled job every minute, because the helpdesk API has no webhook for new tickets."
+    },
+    {
+      "id": "syn-chat-residue-rejected",
+      "pair": "syn-chat-residue",
+      "expect": "review",
+      "criterion": "chat-residue",
+      "text": "The exact share of tickets the agent routes is hard to pin down, so the figure is likely around two thirds. Details on the vendor's pricing are hard to find."
+    },
+    {
+      "id": "syn-chat-residue-approved",
+      "pair": "syn-chat-residue",
+      "expect": "pass",
+      "text": "The agent routed 412 of the 610 tickets that arrived in the week of 16 November, by the helpdesk's own export."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+# Runs on every pull request and every push to main. Fails when a rule was removed or weakened
+# without the rules lock changing, when a rejected example passes or an approved one fails,
+# or when a piece in review, final or posted breaks the house rules.
+name: checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Tests (rules lock, feedback cases, scripts)
+        run: python3 -m unittest discover -s tests -v
+      - name: House rules on every piece in review, final or posted
+        run: python3 scripts/test_check_pieces.py
